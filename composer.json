@@ -16,7 +16,7 @@
             "sh compile_header.sh"
         ],
         "test": [
-            "@php -dopcache.preload=preload.php vendor/bin/ phpunit"
+            "@php -dopcache.preload=preload.php vendor/bin/phpunit"
         ]
     }
 }
