@@ -16,7 +16,7 @@
             "sh compile_header.sh"
         ],
         "test": [
-            "@php -dffi.enable=preload -dopcache.preload=preload.php vendor/bin/phpunit"
+            "@php -dextension=ffi.so -dffi.enable=preload -dopcache.preload=preload.php vendor/bin/phpunit"
         ]
     }
 }
