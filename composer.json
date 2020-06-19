@@ -1,0 +1,22 @@
+{
+    "name": "jayay/cmark-gfm-php",
+    "description": "Github's Markdown parser brought to PHP",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "require-dev": {
+        "phpunit/phpunit": "^9.2"
+    },
+    "require": {},
+    "autoload": {
+        "psr-4": {"jayay\\CommonMarkGithub\\": "src/"}
+    },
+    "scripts": {
+        "compile": [
+            "sh compile_cmark-gfm.sh",
+            "sh compile_header.sh"
+        ],
+        "test": [
+            "@php -dopcache.preload=preload.php vendor/bin/ phpunit"
+        ]
+    }
+}
