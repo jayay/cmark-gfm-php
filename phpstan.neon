@@ -1,0 +1,9 @@
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+        - preload.php
+
+    ignoreErrors:
+        - '#Call to an undefined method FFI::[a-zA-Z0-9\\_]+\(\)#'
