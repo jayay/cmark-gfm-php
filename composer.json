@@ -13,8 +13,8 @@
     },
     "scripts": {
         "compile": [
-            "sh compile_cmark-gfm.sh",
-            "sh compile_header.sh"
+            "sh scripts/compile_cmark-gfm.sh",
+            "sh scripts/compile_header.sh"
         ],
         "test": [
             "@php -n -dzend_extension=opcache -dopcache.enable_cli=1 -dextension=dom -dextension=ffi -dffi.enable=preload -dopcache.preload=preload.php vendor/bin/phpunit"
