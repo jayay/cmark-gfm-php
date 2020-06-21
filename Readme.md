@@ -6,34 +6,43 @@ This library provides a PHP wrapper for [cmark-gfm](https://github.com/github/cm
 
 ## Requirements
 
-* GNU Make
-* cmake
+The following binaries need to be accessible in within `$PATH`:
+
+* `git`
+* GNU Make (`make`)
+* [CMake](https://cmake.org/)
 * a working C compiler such as `gcc` or `clang`
 * the C preprocessor `cpp`
 * PHP >= 7.4
-* composer
+* [Composer](https://getcomposer.org/)
 
 ## Usage
 
-Checkout this repository with submodules (`composer require` is not possible yet) and compile the library:
+Make sure your system meets the above mentioned requirements. Then, install this library using Composer from git and add the `post-install-cmd` and `post-update-cmd` hooks:
 
 ```
-git clone --recursive https://github.com/jayay/cmark-gfm-php
-cd cmark-gfm-php
-composer compile
+"require": {
+    "jayay/cmark-gfm-php": "dev-master"
+},
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/jayay/cmark-gfm-php.git"
+    }
+],
+"scripts": {
+    "post-install-cmd": "cd vendor/jayay/cmark-gfm-php && git submodule update --init && composer compile",
+    "post-update-cmd" : "cd vendor/jayay/cmark-gfm-php && git submodule update --init && composer compile"
+}
 ```
 
 Now set up opcache to preload the preload.php on startup by adding this line in your `php.ini`:
 
 ```
-opcache.preload=/path/to/cmark-gfm-php/preload.php
+opcache.preload=/path/to/project/vendor/jayay/cmark-gfm-php/preload.php
 ```
 
-Setting this using the `-d` argument to PHP works as well. If you have your own preload.php, the one from this repository should be included inside that one.
-
-## Running the tests
-
-This project uses PHPUnit to run the tests, but needs the `opcache.preload` option to be set, which is wrapped in the `composer test` script.
+Setting this using the `-d` argument to PHP works as well. If you have your own preload.php, the one from this repository should be included inside that one by using `opcache_preload_file('vendor/jayay/cmark-gfm-php/preload.php');`.
 
 ## Example
 
@@ -54,6 +63,17 @@ This is a paragraph in Markdown.
 * A second one
 
 <a href="/">HTML will be removed</a>');
+```
+
+## Running the tests
+
+This project uses PHPUnit to run the tests, but needs the `opcache.preload` option to be set, which is wrapped in the `composer test` script.
+
+```
+git clone --recursive https://github.com/jayay/cmark-gfm-php
+cd cmark-gfm-php
+composer compile
+composer test
 ```
 
 # License
