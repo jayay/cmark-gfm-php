@@ -16,6 +16,8 @@
             "sh scripts/compile_cmark-gfm.sh",
             "sh scripts/compile_header.sh"
         ],
+        "post-install-cmd": "git submodule update --init && @composer compile",
+        "post-update-cmd" : "git submodule update --init && @composer compile",
         "test": [
             "@php -n -dzend_extension=opcache -dopcache.enable_cli=1 -dextension=dom -dextension=ffi -dffi.enable=preload -dopcache.preload=preload.php vendor/bin/phpunit"
         ]
