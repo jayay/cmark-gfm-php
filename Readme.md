@@ -36,6 +36,8 @@ Make sure your system meets the above mentioned requirements. Then, install this
 }
 ```
 
+⚠️ Warning ⚠️: The absolute path to the library will be written into the new header, which means the `composer install` has to be executed on every machine that relies on this package!
+
 Now set up opcache to preload the preload.php on startup by adding this line in your `php.ini`:
 
 ```

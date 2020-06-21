@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo '#define FFI_SCOPE "CMARKGFM"' > lib/cmark-gfm-ffi.h
-echo '#define FFI_LIB "lib/lib/libcmark-gfm.so"' >> lib/cmark-gfm-ffi.h
+echo "#define FFI_LIB \"${PWD}/lib/lib/libcmark-gfm.so\"" >> lib/cmark-gfm-ffi.h
 cpp -P -C -D"__attribute__(ARGS)=" lib/include/cmark-gfm.h >> lib/cmark-gfm-ffi.h
 
 # remove broken symbols
