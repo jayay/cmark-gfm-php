@@ -6,3 +6,4 @@ cd cmark-gfm/build
 cmake .. -DCMAKE_INSTALL_PREFIX=../../lib/
 make
 make install
+make clean
