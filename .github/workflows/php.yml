@@ -1,6 +1,8 @@
 name: PHP Composer
 
 on:
+  schedule:
+    - cron:  '47 2,19 * * *'
   push:
     branches: ['*']
   pull_request:
