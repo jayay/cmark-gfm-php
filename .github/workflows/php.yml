@@ -22,7 +22,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '7.4'
-        extensions: dom, mbstring, ffi, json
+        extensions: dom, mbstring, ffi, json, tokenizer, xml, xmlwriter
 
     - name: Validate composer.json and composer.lock
       run: composer validate
